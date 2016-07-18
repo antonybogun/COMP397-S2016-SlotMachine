@@ -61,7 +61,7 @@ var scenes;
             this._creditsText.textAlign = "right";
             this.addChild(this._creditsText);
             // add Bet Text to the scene
-            this._betText = new objects.Label(this.playerBet.toString(), "23px Consolas", "#FFFFFF", 359, 335, false);
+            this._betText = new objects.Label(this.playerBet.toString(), "23px Consolas", "#FFFFFF", 363, 335, false);
             this._betText.textAlign = "right";
             this.addChild(this._betText);
             // add Result Text to the scene
@@ -130,6 +130,7 @@ var scenes;
                         break;
                 }
             }
+            this.winnings = 0;
             return betLine;
         };
         /* This function calculates the player's winnings, if any */
@@ -209,7 +210,7 @@ var scenes;
             this._reels = new Array();
             for (var reel = 0; reel < 3; reel++) {
                 this._reels[reel] = new createjs.Bitmap(assets.getResult("Banana"));
-                this._reels[reel].x = 176 + (reel * 105);
+                this._reels[reel].x = 176 + (reel * 107);
                 this._reels[reel].y = 235;
                 this.addChild(this._reels[reel]);
                 console.log("reel" + reel + " " + this._reels[reel]);

@@ -100,7 +100,7 @@ module scenes {
                 this.playerBet.toString(),
                 "23px Consolas",
                 "#FFFFFF",
-                359, 335, false);
+                363, 335, false);
             this._betText.textAlign = "right";
             this.addChild(this._betText);
             
@@ -182,6 +182,7 @@ module scenes {
                         break;
                 }
             }
+            this.winnings = 0;
             return betLine;
         }
 
@@ -266,7 +267,7 @@ module scenes {
             this._reels = new Array<createjs.Bitmap>();
             for (var reel: number = 0; reel < 3; reel++) {
                 this._reels[reel] = new createjs.Bitmap(assets.getResult("Banana"));
-                this._reels[reel].x = 176 + (reel * 105);
+                this._reels[reel].x = 176 + (reel * 107);
                 this._reels[reel].y = 235;
                 this.addChild(this._reels[reel]);
                 console.log("reel" + reel + " " + this._reels[reel]);
