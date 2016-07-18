@@ -1,3 +1,11 @@
+/**
+ * @source file name:   config.ts
+ * @author          :   Tony Bogun
+ * @last modified by:   Tony Bogun (1 contributor)
+ * @description     :   Game over scene class implementation file
+ * @revision history:   https://github.com/antonybogun/COMP397-S2016-SlotMachine/commits/master  
+ */
+
 // INTRO SCENE
 module scenes {
     export class GameOver extends objects.Scene {

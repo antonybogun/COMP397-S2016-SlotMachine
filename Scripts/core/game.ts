@@ -1,4 +1,12 @@
-﻿/// <reference path = "_reference.ts" />
+﻿/**
+ * @source file name:   game.ts
+ * @author          :   Tony Bogun
+ * @last modified by:   Tony Bogun (1 contributor)
+ * @description     :   Core functionality implementation file
+ * @revision history:   https://github.com/antonybogun/COMP397-S2016-SlotMachine/commits/master  
+ */
+
+/// <reference path = "_reference.ts" />
 
 // global variables
 var assets: createjs.LoadQueue;

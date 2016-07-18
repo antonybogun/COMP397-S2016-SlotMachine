@@ -1,3 +1,12 @@
+/**
+ * @source file name:   config.ts
+ * @author          :   Tony Bogun
+ * @last modified by:   Tony Bogun (1 contributor)
+ * @description     :   Slot machine game scene class implementation file
+ * @revision history:   https://github.com/antonybogun/COMP397-S2016-SlotMachine/commits/master  
+ */
+
+
 // SLOT MACHINE SCENE
 module scenes {
     export class SlotMachine extends objects.Scene {

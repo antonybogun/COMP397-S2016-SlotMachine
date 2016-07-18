@@ -1,4 +1,11 @@
-﻿module config {
+﻿/**
+ * @source file name:   config.ts
+ * @author          :   Tony Bogun
+ * @last modified by:   Tony Bogun (1 contributor)
+ * @description     :   Constant declaration file
+ * @revision history:   https://github.com/antonybogun/COMP397-S2016-SlotMachine/commits/master  
+ */
+module config {
 
     // Scene Constants
     export class Scene {
