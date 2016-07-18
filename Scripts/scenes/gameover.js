@@ -15,28 +15,39 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         GameOver.prototype.start = function () {
-            // add Intro Image
-            //add the WELCOME label to the MENU scene
-            this._gameOverLabel = new objects.Label("GAME OVER", "60px Consolas", "#000000", config.Screen.CENTER_X, config.
-                Screen.CENTER_Y);
+            // add the WELCOME Label to the MENU scene
+            this._gameOverLabel = new objects.Label("Play again or Quit?", "40px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._gameOverLabel);
             // add the START button to the MENU scene
-            this._startOverButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
+            this._startOverButton = new objects.Button("StartButton", config.Screen.CENTER_X - 100, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startOverButton);
+            // add the QUIT button to finish
+            this._quitButton = new objects.Button("QuitButton", config.Screen.CENTER_X + 100, config.Screen.CENTER_Y + 80, true);
+            this.addChild(this._quitButton);
             // START Button event listener
             this._startOverButton.on("click", this._startOverButtonClick, this);
+            // QUIT Button event listener
+            this._quitButton.on("click", this._quitOverButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
-        // INTRO Scene updates here
+        // GAME_OVER Scene updates here
         GameOver.prototype.update = function () {
         };
         //EVENT HANDLERS ++++++++++++++++++++
         // START Button click event handler
         GameOver.prototype._startOverButtonClick = function (event) {
-            // Switch to the START Scene
+            // Switch to the LEFT_CAVE Scene
             scene = config.Scene.SLOT_MACHINE;
             changeScene();
+        };
+        // QUIT Button click event handler
+        GameOver.prototype._quitOverButtonClick = function (event) {
+            // Finish Game
+            if (confirm("Do you want to quit game?")) {
+                var objWindow = window.open(location.href, "_self");
+                objWindow.close();
+            }
         };
         return GameOver;
     }(objects.Scene));

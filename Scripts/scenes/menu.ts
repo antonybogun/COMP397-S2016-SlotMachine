@@ -1,9 +1,9 @@
-// MENU SCENE
 module scenes {
     export class Menu extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _startButton:objects.Button;
-        private _welcomeLabel:objects.Label;
+        private _startButton: objects.Button;
+        private _welcomeLabel: objects.Label;
+        private _logoImage: createjs.Bitmap;
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -12,31 +12,30 @@ module scenes {
         // PUBLIC METHODS +++++++++++++++++++++
         
         // Start Method
-        public start(): void {
-            // add Intro Image
+        public start(): void {    
 
-            //add the WELCOME label to the MENU scene
-
-            this._welcomeLabel = new objects.Label(
-                "SLOT MACHINE",
-                "60px Consolas",
-                "#000000",
-                config.Screen.CENTER_X,config.
-                Screen.CENTER_Y);
-           this.addChild(this._welcomeLabel); 
+             // add background image to the scene
+            this._logoImage = new createjs.Bitmap(assets.getResult("SlotMachineLogo"));
+            this._logoImage.x = config.Screen.CENTER_X - 120;
+            this._logoImage.y = config.Screen.CENTER_Y - 100;
+            this.addChild(this._logoImage);
 
             // add the START button to the MENU scene
             this._startButton = new objects.Button(
                 "StartButton",
                 config.Screen.CENTER_X,
-                config.Screen.CENTER_Y+80, true);
+                config.Screen.CENTER_Y + 170, true);
             this.addChild(this._startButton);
             
             // START Button event listener
-            this._startButton.on("click", this._startButtonClick, this);           
-            
+            this._startButton.on("click", this._startButtonClick, this);
+
+           
+           
             // add this scene to the global stage container
             stage.addChild(this);
+
+           
         }
 
         // INTRO Scene updates here
@@ -49,9 +48,9 @@ module scenes {
         
         // START Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
-            // Switch to the START Scene
-            scene = config.Scene.SLOT_MACHINE;
-            changeScene();
+            //FadeOut 
+                scene = config.Scene.SLOT_MACHINE;
+                changeScene();
         }
 
     }

@@ -19,6 +19,20 @@ var assetData = [
     { id: "Bet1Button", src: "../../Assets/images/Bet1.png" },
     { id: "Bet10Button", src: "../../Assets/images/Bet10.png" },
     { id: "Bet100Button", src: "../../Assets/images/Bet100.png" },
+    { id: "ResetButton", src: "../../Assets/images/Reset.png" },
+    { id: "GameoverButton", src: "../../Assets/images/Exit.png" },
+    { id: "QuitButton", src: "../../Assets/images/QuitButton.png" },
+    { id: "BlackBackground", src: "../../Assets/images/BlackBackground.png" },
+    { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
+    { id: "Blank", src: "../../Assets/images/Blank.png" },
+    { id: "Grapes", src: "../../Assets/images/Grapes.gif" },
+    { id: "Banana", src: "../../Assets/images/Banana.gif" },
+    { id: "Cherry", src: "../../Assets/images/Cherry.gif" },
+    { id: "Orange", src: "../../Assets/images/Orange.gif" },
+    { id: "Bar", src: "../../Assets/images/Bar.gif" },
+    { id: "Bell", src: "../../Assets/images/Bell.gif" },
+    { id: "Seven", src: "../../Assets/images/Seven.gif" },
+    { id: "SlotMachineLogo", src: "../../Assets/images/SlotMachineLogo.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -91,4 +105,5 @@ function changeScene() {
     }
     console.log(currentScene.numChildren);
 }
+window.onload = preload;
 //# sourceMappingURL=game.js.map
