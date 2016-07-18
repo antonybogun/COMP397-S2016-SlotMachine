@@ -34,49 +34,49 @@ module scenes {
         constructor() {
             super();
         }
-        
+
         // PUBLIC METHODS +++++++++++++++++++++
-        
+
         // Start Method
-        public start(): void { 
+        public start(): void {
             // Reset the Game to initial values 
             this._resetAll();
-            
+
             // add background image to the scene
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
-            
+
             // add Bet10Button to the scene
             this._bet1Button = new objects.Button("Bet1Button", 154, 404, false);
             this.addChild(this._bet1Button);
-            this._bet1Button.on("click", this._bet1ButtonClick, this); 
-            
+            this._bet1Button.on("click", this._bet1ButtonClick, this);
+
             // add Bet50Button to the scene
             this._bet10Button = new objects.Button("Bet10Button", 210, 404, false);
             this.addChild(this._bet10Button);
-            this._bet10Button.on("click", this._bet10ButtonClick, this); 
-            
+            this._bet10Button.on("click", this._bet10ButtonClick, this);
+
             // add Bet100Button to the scene
             this._bet100Button = new objects.Button("Bet100Button", 266, 404, false);
             this.addChild(this._bet100Button);
-            this._bet100Button.on("click", this._bet100ButtonClick, this); 
-            
+            this._bet100Button.on("click", this._bet100ButtonClick, this);
+
             // add SpinButton to the scene
             this._spinButton = new objects.Button("SpinButton", 322, 404, false);
             this.addChild(this._spinButton);
-            this._spinButton.on("click", this._spinButtonClick, this); 
-               
-             // add ResetButton to the scene
+            this._spinButton.on("click", this._spinButtonClick, this);
+
+            // add ResetButton to the scene
             this._resetButton = new objects.Button("ResetButton", 378, 404, false);
             this.addChild(this._resetButton);
-            this._resetButton.on("click", this._resetButtonClick, this); 
+            this._resetButton.on("click", this._resetButtonClick, this);
 
             // add QuitButton to the scene
             this._gameoverButton = new objects.Button("GameoverButton", 434, 404, false);
             this.addChild(this._gameoverButton);
-            this._gameoverButton.on("click", this._gameoverButtonClick, this); 
+            this._gameoverButton.on("click", this._gameoverButtonClick, this);
 
-            
+
             // add JackPot Text to the scene
             this._jackpotText = new objects.Label(
                 this.jackpot.toString(),
@@ -85,7 +85,7 @@ module scenes {
                 490, 85, false);
             this._jackpotText.textAlign = "right";
             this.addChild(this._jackpotText);
-        
+
             // add Credits Text to the scene
             this._creditsText = new objects.Label(
                 this.playerMoney.toString(),
@@ -94,7 +94,7 @@ module scenes {
                 255, 335, false);
             this._creditsText.textAlign = "right";
             this.addChild(this._creditsText);
-            
+
             // add Bet Text to the scene
             this._betText = new objects.Label(
                 this.playerBet.toString(),
@@ -103,7 +103,7 @@ module scenes {
                 363, 335, false);
             this._betText.textAlign = "right";
             this.addChild(this._betText);
-            
+
             // add Result Text to the scene
             this._resultText = new objects.Label(
                 this.winnings.toString(),
@@ -112,10 +112,10 @@ module scenes {
                 475, 335, false);
             this._resultText.textAlign = "right";
             this.addChild(this._resultText);
-        
+
             // Initialize Array of Bitmaps 
             this._initializeBitmapArray();
-        
+
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -124,7 +124,7 @@ module scenes {
         public update(): void {
 
         }
-        
+
         //PRIVATE METHODS
         /* Utility function to check if a value falls within a range of bounds */
         private _checkRange(value: number, lowerBounds: number, upperBounds: number): number {
@@ -138,7 +138,7 @@ module scenes {
             this.jackpot = 1000;
             this.playerBet = 0;
         }
-        
+
         /* When this function is called it determines the betLine results.
         e.g. Bar - Orange - Banana */
         private _spinReels(): string[] {
@@ -238,6 +238,7 @@ module scenes {
                     this.winnings = this.playerBet * 1;
                 }
                 console.log("Win!");
+                this._checkJackPot();
             }
             else {
                 console.log("Loss!");
@@ -266,7 +267,7 @@ module scenes {
         private _initializeBitmapArray(): void {
             this._reels = new Array<createjs.Bitmap>();
             for (var reel: number = 0; reel < 3; reel++) {
-                this._reels[reel] = new createjs.Bitmap(assets.getResult("Banana"));
+                this._reels[reel] = new createjs.Bitmap(assets.getResult("Seven"));
                 this._reels[reel].x = 176 + (reel * 107);
                 this._reels[reel].y = 235;
                 this.addChild(this._reels[reel]);
@@ -276,20 +277,28 @@ module scenes {
 
         //assign bet money and show the amount
         private _placeBet(playerBet: number) {
-            
+
             // Check player has as enough money as it is more than bet money 
-             if(playerBet > this.playerMoney){
+            if (playerBet > this.playerMoney) {
                 alert("Sorry, not enough money");
-             }else{
+            } else {
                 this.playerBet += playerBet;
                 this.playerMoney -= playerBet;
                 this._creditsText.text = this.playerMoney.toString();
                 this._betText.text = this.playerBet.toString();
             }
         }
-        
+        private _checkJackPot() {
+            /* compare two random values */
+            var jackPotTry = Math.floor(Math.random() * 51 + 1);
+            var jackPotWin = Math.floor(Math.random() * 51 + 1);
+            if (jackPotTry == jackPotWin) {
+                alert("You Won the $" + this.jackpot + " Jackpot!!");
+                this.playerMoney += this.jackpot;
+            }
+        }
         //EVENT HANDLERS ++++++++++++++++++++
-        
+
         //Bet button click event
         private _bet1ButtonClick(event: createjs.MouseEvent): void {
             console.log("Bet 1 Credit");
@@ -336,15 +345,15 @@ module scenes {
         //Reset game variables
         private _resetButtonClick(event: createjs.MouseEvent): void {
             console.log("_resetButtonClick");
-            this.start();      
+            this.start();
         }
 
         //Move to a gameover page
         private _gameoverButtonClick(event: createjs.MouseEvent): void {
-            console.log("_quitButtonClick");     
-                // Switch to the Game over Scene
-                scene = config.Scene.GAME_OVER;
-                changeScene();   
+            console.log("_quitButtonClick");
+            // Switch to the Game over Scene
+            scene = config.Scene.GAME_OVER;
+            changeScene();
         }
     }
 }

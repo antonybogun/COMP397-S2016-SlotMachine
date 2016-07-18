@@ -18,7 +18,7 @@ module scenes {
 
             // add the WELCOME Label to the MENU scene
             this._gameOverLabel = new objects.Label(
-                "Play again or Quit?",
+                "Play Again or Quit?",
                 "40px Consolas",
                 "#000000",
                 config.Screen.CENTER_X,
@@ -27,7 +27,7 @@ module scenes {
 
             // add the START button to the MENU scene
             this._startOverButton = new objects.Button(
-                "StartButton",
+                "StartOverButton",
                 config.Screen.CENTER_X - 100,
                 config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startOverButton);

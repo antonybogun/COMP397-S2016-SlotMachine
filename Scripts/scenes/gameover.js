@@ -16,10 +16,10 @@ var scenes;
         // Start Method
         GameOver.prototype.start = function () {
             // add the WELCOME Label to the MENU scene
-            this._gameOverLabel = new objects.Label("Play again or Quit?", "40px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._gameOverLabel = new objects.Label("Play Again or Quit?", "40px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._gameOverLabel);
             // add the START button to the MENU scene
-            this._startOverButton = new objects.Button("StartButton", config.Screen.CENTER_X - 100, config.Screen.CENTER_Y + 80, true);
+            this._startOverButton = new objects.Button("StartOverButton", config.Screen.CENTER_X - 100, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startOverButton);
             // add the QUIT button to finish
             this._quitButton = new objects.Button("QuitButton", config.Screen.CENTER_X + 100, config.Screen.CENTER_Y + 80, true);

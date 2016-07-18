@@ -185,6 +185,7 @@ var scenes;
                     this.winnings = this.playerBet * 1;
                 }
                 console.log("Win!");
+                this._checkJackPot();
             }
             else {
                 console.log("Loss!");
@@ -209,7 +210,7 @@ var scenes;
         SlotMachine.prototype._initializeBitmapArray = function () {
             this._reels = new Array();
             for (var reel = 0; reel < 3; reel++) {
-                this._reels[reel] = new createjs.Bitmap(assets.getResult("Banana"));
+                this._reels[reel] = new createjs.Bitmap(assets.getResult("Seven"));
                 this._reels[reel].x = 176 + (reel * 107);
                 this._reels[reel].y = 235;
                 this.addChild(this._reels[reel]);
@@ -227,6 +228,15 @@ var scenes;
                 this.playerMoney -= playerBet;
                 this._creditsText.text = this.playerMoney.toString();
                 this._betText.text = this.playerBet.toString();
+            }
+        };
+        SlotMachine.prototype._checkJackPot = function () {
+            /* compare two random values */
+            var jackPotTry = Math.floor(Math.random() * 51 + 1);
+            var jackPotWin = Math.floor(Math.random() * 51 + 1);
+            if (jackPotTry == jackPotWin) {
+                alert("You Won the $" + this.jackpot + " Jackpot!!");
+                this.playerMoney += this.jackpot;
             }
         };
         //EVENT HANDLERS ++++++++++++++++++++

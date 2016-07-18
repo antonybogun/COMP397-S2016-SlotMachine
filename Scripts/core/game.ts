@@ -15,19 +15,16 @@ var slotMachine:scenes.SlotMachine;
 var gameOver: scenes.GameOver;
 
 var assetData:objects.Asset[] = [
-    {id: "BackButton", src:"../../Assets/images/BackButton.png"},   
-    {id: "Nextbutton", src:"../../Assets/images/Nextbutton.png"},
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
+    {id: "StartOverButton", src:"../../Assets/images/StartOverButton.png"},
+    {id: "QuitButton", src:"../../Assets/images/QuitButton.png"},
     {id: "SlotMachine", src:"../../Assets/images/SlotMachine.png"},
     {id: "SpinButton", src:"../../Assets/images/Spin.png"},
     {id: "Bet1Button", src:"../../Assets/images/Bet1.png"},
     {id: "Bet10Button", src:"../../Assets/images/Bet10.png"},
     {id: "Bet100Button", src:"../../Assets/images/Bet100.png"},
     {id: "ResetButton", src:"../../Assets/images/Reset.png"},
-    {id: "GameoverButton", src:"../../Assets/images/Exit.png"},
-    {id: "QuitButton", src:"../../Assets/images/QuitButton.png"},
-    {id: "BlackBackground", src:"../../Assets/images/BlackBackground.png"},
-    {id: "WhiteBackground", src:"../../Assets/images/WhiteBackground.png"},
+    {id: "GameoverButton", src:"../../Assets/images/Exit.png"},    
     {id: "Blank", src:"../../Assets/images/Blank.png"},
     {id: "Grapes", src:"../../Assets/images/Grapes.gif"},
     {id: "Banana", src:"../../Assets/images/Banana.gif"},
@@ -36,8 +33,7 @@ var assetData:objects.Asset[] = [
     {id: "Bar", src:"../../Assets/images/Bar.gif"},
     {id: "Bell", src:"../../Assets/images/Bell.gif"},
     {id: "Seven", src:"../../Assets/images/Seven.gif"},
-    {id: "SlotMachineLogo", src:"../../Assets/images/SlotMachineLogo.png"}
-    
+    {id: "SlotMachineLogo", src:"../../Assets/images/SlotMachineLogo.png"}   
 ];
 
 function preload() {
