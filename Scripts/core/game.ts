@@ -19,6 +19,10 @@ var assetData:objects.Asset[] = [
     {id: "Nextbutton", src:"../../Assets/images/Nextbutton.png"},
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
     {id: "SlotMachine", src:"../../Assets/images/SlotMachine.png"},
+    {id: "SpinButton", src:"../../Assets/images/Spin.png"},
+    {id: "Bet1Button", src:"../../Assets/images/Bet1.png"},
+    {id: "Bet10Button", src:"../../Assets/images/Bet10.png"},
+    {id: "Bet100Button", src:"../../Assets/images/Bet100.png"},
 ];
 
 function preload() {
